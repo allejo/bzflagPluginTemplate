@@ -26,7 +26,9 @@ rm *.bak
 
 git init
 
-if [ "$2" -eq "true" ]
+if [ "$2" = "true" ]
 then
     git submodule add https://github.com/allejo/bztoolkit.git
 fi
+
+git add .
