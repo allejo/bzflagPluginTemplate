@@ -11,13 +11,15 @@ template=SAMPLE_PLUGIN
 
 mv "$template.def" "$pluginName.def"
 
+sed -i.bak s/$template/$1/g "$pluginName.sln"
+sed -i.bak s/$template/$1/g "$pluginName.vcxproj"
+sed -i.bak s/$template/$1/g "$pluginName.vcxproj.filters"
 sed -i.bak s/$template/$1/g "$pluginName.def"
 sed -i.bak s/$template/$1/g "Makefile.am"
 
 rm "README.md"
 
 touch "LICENSE.md"
-touch "README.$pluginName.txt"
 touch "README.md"
 
 rm -rf .git
@@ -29,6 +31,15 @@ git init
 if [ "$2" = "true" ]
 then
     git submodule add https://github.com/allejo/bztoolkit.git
+
+    # A bzToolkit requirement will not work on Windows, so remove those files
+    rm "$pluginName.def" "$pluginName.sln" "$pluginName.vcxproj" "$pluginName.vcxproj.filters"
+
+    sed -i.bak 's/\README\.md\ \\/README.md/g' "Makefile.am"
+    sed -i.bak /$pluginName\.def/d "Makefile.am"
+    sed -i.bak /$pluginName\.sln/d "Makefile.am"
+    sed -i.bak /$pluginName\.vcxproj/d "Makefile.am"
+    sed -i.bak /$pluginName\.vcxproj.filters/d "Makefile.am"
 fi
 
 git add .
