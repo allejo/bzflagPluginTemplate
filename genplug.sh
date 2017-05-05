@@ -27,7 +27,6 @@ mv "README.template.md" "README.md"
 
 rm -rf .git
 rm genplug.sh
-rm *.bak
 
 git init
 
