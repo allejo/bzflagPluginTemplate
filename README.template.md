@@ -49,6 +49,19 @@ These custom BZDB variables must be used with -setforced, which sets BZDB variab
 | ------------ | ---- | ---- | ----------- |
 | FA | Flag Name | Good | A description of what the flag does |
 
+### Custom Map Objects
+
+This plug-in introduces the `OBJECT` map object which supports the traditional `position`, `size`, and `rotation` attributes for rectangular objects and `position`, `height`, and `radius` for cylindrical objects.
+
+```text
+object
+  position 0 0 0
+  size 5 5 5
+  rotation 0
+  <custom parameters>
+end
+```
+
 ## License
 
 [LICENSE](LICENSE.md)
