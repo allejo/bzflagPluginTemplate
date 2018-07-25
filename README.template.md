@@ -11,6 +11,8 @@ A brief description about what the plugin does should go here
 - List any requirements
 - this plug-in will require
 
+This plug-in follows [my standard instructions for compiling plug-ins](https://github.com/allejo/docs.allejo.io/wiki/BZFlag-Plug-in-Distribution).
+
 ## Usage
 
 ### Loading the plug-in
@@ -27,10 +29,10 @@ If the plugin requires a custom configuration file, describe it here and all of 
 
 ### Custom BZDB Variables
 
-These custom BZDB variables must be used with -setforced, which sets BZDB variable <name> to <value>, even if the variable does not exist. These variables may changed at any time in-game by using the /set command.
+These custom BZDB variables can be configured with `-set` in configuration files and may be changed at any time in-game by using the `/set` command.
 
 ```
--setforced <name> <value>
+-set <name> <value>
 ```
 
 | Name | Type | Default | Description |
