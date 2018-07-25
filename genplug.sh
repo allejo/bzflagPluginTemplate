@@ -2,7 +2,7 @@
 
 if [ "$#" -lt 1 ]
 then
-    echo "sh genplug.sh <plugin name> <enable bztoolkit (true|false)>"
+    echo "sh genplug.sh <plugin name>"
     exit
 fi
 
@@ -29,20 +29,6 @@ rm -rf .git
 rm genplug.sh
 
 git init
-
-if [ "$2" = "true" ]
-then
-    git submodule add https://github.com/allejo/bztoolkit.git
-
-    # A bzToolkit requirement will not work on Windows, so remove those files
-    rm "$pluginName.def" "$pluginName.sln" "$pluginName.vcxproj" "$pluginName.vcxproj.filters"
-
-    sed -i.bak 's/\README\.md\ \\/README.md/g' "Makefile.am"
-    sed -i.bak /$pluginName\.def/d "Makefile.am"
-    sed -i.bak /$pluginName\.sln/d "Makefile.am"
-    sed -i.bak /$pluginName\.vcxproj/d "Makefile.am"
-    sed -i.bak /$pluginName\.vcxproj.filters/d "Makefile.am"
-fi
 
 rm *.bak
 git add .
