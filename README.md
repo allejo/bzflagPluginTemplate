@@ -10,6 +10,8 @@ What do you mean self-destructing? Well... Once you clone this repository and th
 
 ```
 ./genplug.sh <plugin name>
+git remote add <your repo>
+git push --force -u origin master
 ```
 
 ## License
